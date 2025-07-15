@@ -1,19 +1,16 @@
-#include <iostream>
-using namespace std;
-
-
 /* Strategy Pattern – What It Does
-Strategy pattern helps you define a family of behaviors, encapsulate each one, and make them interchangeable at runtime.
+Strategy pattern reduce duplicate code, customize behaviours at run time . 
+example : selecting functionaliy as per need, which can be used by object as it own capabliy.
 
-✅ Benefits
 1 Promotes composition over inheritance
 2 Allows changing behavior dynamically
 3 Makes the code more maintainable, flexible, and testable
 
-Drive functionalities to use in car
-
 */
+#include <iostream>
+using namespace std;
 
+//interface , pure virtual function , its child will override drive funtionaity
 class drivefun
 {
 
@@ -57,14 +54,7 @@ class drivefun_offroad : public drivefun
 };
 
 
-
-
-
-
-
-
-
-
+//car is inferface , it hsas pure virtual functiion, hence its object cannot be created
 class car {
     
     public:
@@ -73,17 +63,20 @@ class car {
     ~car()
     {
         delete(f);
+        //need to delete object pointing by this address, else memory leak, since it is not ok stack, but on heap , as it was assigned at runtime.
     }
    
 };
 
 class racecar : public car
 {
-    //int speed;
+    //int speed;  functionality to be added latter
 
     public:
-    racecar(drivefun* x) {
+    racecar(drivefun* x)
+    {
         f= x;
+        // this is not a good approach,  i should pass to parent constructor, will do latter
     }
     void drive() override
     {
@@ -95,8 +88,9 @@ class racecar : public car
 
 class cabcar : public car
 {
-public:
-cabcar(drivefun* x) {
+    public:
+    cabcar(drivefun* x) 
+    {
         f= x;
     }
     void drive() override
@@ -115,7 +109,7 @@ int main()
 {
     cout<<"Game Starts"<<endl;
    
- 
+     //dynamically provide functionality of sporty to a racecar. 
     car* c= new racecar(new drivefun_sporty);
     c->drive();
 
