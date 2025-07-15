@@ -12,7 +12,7 @@ my observations :
 ->temperature
 ->update method
 because these are used internally, hence  a better pratice
-4. I should also implement unregistration , in case of registration, vector will take more time i.e O(n) , hence i can use set/unorganised set instead.
+4. I should also implement unregistration ,So, vector will take more time i.e O(n) , hence i can use set/unorganised set instead.
 
 */
 
