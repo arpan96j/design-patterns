@@ -2,8 +2,10 @@
 Learning low level design patterns by coding from scratch
 
 Tasks 
-1 Strategy design pattern 
-2 Observer design pattern
-3 Decorator design pattern
+-> Strategy design pattern 
+
+-> Observer design pattern
+
+-> Decorator design pattern
 
 
